@@ -1,5 +1,8 @@
 package com.wfr.basic.service.platform.service;
 
+import com.wfr.springboot.aliyun.service.sls.log.content.SlsLogData;
+import com.wfr.springboot.base.log.context.LogData;
+import com.wfr.springboot.base.log.context.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,5 +21,23 @@ public class BasePlatformService {
      */
     public void printSlsLog(String msg) {
         System.out.println(msg);
+        Logger.warn(LogData.class)
+                .addMessage(msg)
+                .add("user", "wang")
+                .put();
+
+        LogData.debug()
+                .addMessage("测试")
+                .put();
+
+        LogData.info()
+                .addMessage(msg)
+                .add("user", "wangfarui")
+                .put();
+
+        SlsLogData.info("basePlatformService")
+                .addMessage(msg)
+                .add("user", "wfr")
+                .put();
     }
 }

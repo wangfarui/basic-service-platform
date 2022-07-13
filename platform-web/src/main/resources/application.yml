@@ -1,2 +1,12 @@
 server:
   port: 8081
+
+aliyun:
+  sls:
+    log:
+      enabled: false
+      project: my-springboot-starter
+      endpoint: cn-guangzhou.log.aliyuncs.com
+      log-store: my-local
+      producer:
+        retries: 1
