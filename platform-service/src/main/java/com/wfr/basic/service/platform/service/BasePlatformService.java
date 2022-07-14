@@ -1,6 +1,6 @@
 package com.wfr.basic.service.platform.service;
 
-import com.wfr.springboot.aliyun.service.sls.log.content.SlsLogData;
+import com.wfr.springboot.aliyun.service.sls.log.SlsLogData;
 import com.wfr.springboot.base.log.context.LogData;
 import com.wfr.springboot.base.log.context.Logger;
 import org.springframework.stereotype.Service;

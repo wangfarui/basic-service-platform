@@ -4,9 +4,10 @@ server:
 aliyun:
   sls:
     log:
-      enabled: false
       project: my-springboot-starter
       endpoint: cn-guangzhou.log.aliyuncs.com
-      log-store: my-local
-      producer:
-        retries: 1
+      enabled: false
+#      log-store: my-local
+spring:
+  application:
+    name: platform-web
