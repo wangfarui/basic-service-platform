@@ -17,6 +17,8 @@
         <module>platform-web</module>
         <module>platform-controller</module>
         <module>platform-service</module>
+        <module>platform-model</module>
+        <module>platform-dao</module>
     </modules>
 
     <packaging>pom</packaging>
