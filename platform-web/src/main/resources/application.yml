@@ -6,8 +6,18 @@ aliyun:
     log:
       project: my-springboot-starter
       endpoint: cn-guangzhou.log.aliyuncs.com
-      enabled: false
-#      log-store: my-local
+      enabled: true
+      log-store: my-local
 spring:
   application:
     name: platform-web
+web:
+  log:
+    filter:
+      exclude-patterns:
+        - /base/test/2
+        - /base/abc
+      include-patterns:
+        - /base/printSlsLog
+        - /base/test
+        - /base/abc

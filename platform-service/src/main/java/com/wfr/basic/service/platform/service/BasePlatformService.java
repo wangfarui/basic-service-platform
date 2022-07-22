@@ -19,7 +19,7 @@ public class BasePlatformService {
      *
      * @param msg 日志消息
      */
-    public void printSlsLog(String msg) {
+    public String printSlsLog(String msg) {
         System.out.println(msg);
         Logger.warn(LogData.class)
                 .addMessage(msg)
@@ -39,5 +39,7 @@ public class BasePlatformService {
                 .addMessage(msg)
                 .add("user", "wfr")
                 .put();
+
+        return "success: " + msg;
     }
 }

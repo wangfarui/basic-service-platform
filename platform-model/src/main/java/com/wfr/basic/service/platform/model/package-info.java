@@ -1,0 +1,1 @@
+package com.wfr.basic.service.platform.model;
