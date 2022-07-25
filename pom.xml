@@ -44,6 +44,16 @@
                 <artifactId>platform-controller</artifactId>
                 <version>${platform.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.wfr.platform</groupId>
+                <artifactId>platform-dao</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wfr.platform</groupId>
+                <artifactId>platform-model</artifactId>
+                <version>${platform.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

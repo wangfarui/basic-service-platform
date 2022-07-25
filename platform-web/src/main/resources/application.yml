@@ -1,3 +1,12 @@
+spring:
+  application:
+    name: platform-web
+  datasource:
+    url: jdbc:mysql://localhost:3307/basic_platform?allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: your
+    password: your
+    type: com.mysql.cj.jdbc.MysqlDataSource
+
 server:
   port: 8081
 
@@ -6,18 +15,17 @@ aliyun:
     log:
       project: my-springboot-starter
       endpoint: cn-guangzhou.log.aliyuncs.com
-      enabled: true
+      enabled: false
       log-store: my-local
-spring:
-  application:
-    name: platform-web
+
 web:
   log:
     filter:
       exclude-patterns:
         - /base/test/2
         - /base/abc
-      include-patterns:
-        - /base/printSlsLog
-        - /base/test
-        - /base/abc
+#      include-patterns:
+#        - /base/printSlsLog
+#        - /base/test
+#        - /base/abc
+debug: true
