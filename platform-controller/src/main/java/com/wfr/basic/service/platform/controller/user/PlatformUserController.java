@@ -1,6 +1,8 @@
 package com.wfr.basic.service.platform.controller.user;
 
+import com.wfr.basic.service.platform.model.dto.user.DeletePlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.EditPlatformUserDto;
+import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
 import com.wfr.basic.service.platform.service.IPlatformUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 平台用户 api控制层
@@ -51,5 +54,25 @@ public class PlatformUserController {
     @PutMapping("/edit")
     public void editPlatformUser(@Valid @RequestBody EditPlatformUserDto dto) {
         platformUserService.editPlatformUser(dto);
+    }
+
+    /**
+     * 删除平台用户 (批量)
+     *
+     * @param dto 待删除的平台用户信息
+     */
+    @DeleteMapping("/delete")
+    public void deletePlatformUser(@Valid @RequestBody DeletePlatformUserDto dto) {
+        platformUserService.deletePlatformUser(dto);
+    }
+
+    /**
+     * 列表查询平台用户
+     *
+     * @param dto 列表查询的条件对象
+     */
+    @PostMapping("/list")
+    public List<PlatformUserVo> listPlatformUser(@RequestBody ListPlatformUserDto dto) {
+        return platformUserService.listPlatformUser(dto);
     }
 }

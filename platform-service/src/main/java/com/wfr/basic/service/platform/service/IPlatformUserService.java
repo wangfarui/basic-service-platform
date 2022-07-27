@@ -1,7 +1,11 @@
 package com.wfr.basic.service.platform.service;
 
+import com.wfr.basic.service.platform.model.dto.user.DeletePlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.EditPlatformUserDto;
+import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
+
+import java.util.List;
 
 /**
  * 平台用户 接口服务层
@@ -32,4 +36,18 @@ public interface IPlatformUserService {
      * @param dto 可编辑的平台用户信息
      */
     void editPlatformUser(EditPlatformUserDto dto);
+
+    /**
+     * 删除平台用户 (批量)
+     *
+     * @param dto 待删除的平台用户信息
+     */
+    void deletePlatformUser(DeletePlatformUserDto dto);
+
+    /**
+     * 列表查询平台用户
+     *
+     * @param dto 列表查询的条件对象
+     */
+    List<PlatformUserVo> listPlatformUser(ListPlatformUserDto dto);
 }

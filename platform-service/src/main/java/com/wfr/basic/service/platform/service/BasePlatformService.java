@@ -24,21 +24,21 @@ public class BasePlatformService {
         Logger.warn(LogData.class)
                 .addMessage(msg)
                 .add("user", "wang")
-                .put();
+                .push();
 
         LogData.debug()
                 .addMessage("测试")
-                .put();
+                .push();
 
         LogData.info()
                 .addMessage(msg)
                 .add("user", "wangfarui")
-                .put();
+                .push();
 
         SlsLogData.info("basePlatformService")
                 .addMessage(msg)
                 .add("user", "wfr")
-                .put();
+                .push();
 
         return "success: " + msg;
     }
