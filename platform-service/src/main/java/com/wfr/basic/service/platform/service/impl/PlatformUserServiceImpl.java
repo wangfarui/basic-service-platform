@@ -7,7 +7,7 @@ import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.entity.PlatformUserEntity;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
 import com.wfr.basic.service.platform.service.IPlatformUserService;
-import org.springframework.beans.BeanUtils;
+import com.wfr.springboot.base.bean.mapper.BeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +31,7 @@ public class PlatformUserServiceImpl implements IPlatformUserService {
     public PlatformUserVo getPlatformUserInfoById(Long id) {
         PlatformUserEntity entity = platformUserDaoService.getById(id);
         PlatformUserVo platformUserVo = new PlatformUserVo();
-        BeanUtils.copyProperties(entity, platformUserVo);
+        BeanMapper.copy(entity, platformUserVo);
         return platformUserVo;
     }
 
@@ -45,7 +45,7 @@ public class PlatformUserServiceImpl implements IPlatformUserService {
             throw new IllegalArgumentException("账户名不能重复");
         }
         PlatformUserEntity entity = new PlatformUserEntity();
-        BeanUtils.copyProperties(dto, entity);
+        BeanMapper.copy(dto, entity);
         platformUserDaoService.save(entity);
     }
 

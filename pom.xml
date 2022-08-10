@@ -19,6 +19,7 @@
         <module>platform-service</module>
         <module>platform-model</module>
         <module>platform-dao</module>
+        <module>platform-common</module>
     </modules>
 
     <packaging>pom</packaging>
