@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <artifactId>dependency-parent</artifactId>
+        <groupId>com.wfr.springboot</groupId>
+        <version>1.0.0</version>
+    </parent>
+
     <groupId>com.wfr.platform</groupId>
     <artifactId>basic-service-platform</artifactId>
     <version>${platform.version}</version>
@@ -22,16 +28,6 @@
     <properties>
         <platform.version>1.0.0-SNAPSHOT</platform.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <artifactId>dependency-parent</artifactId>
-            <groupId>com.wfr.springboot</groupId>
-            <version>1.0.0</version>
-            <type>pom</type>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
