@@ -1,5 +1,6 @@
 package com.wfr.basic.service.platform.controller.user;
 
+import com.wfr.base.framework.common.PageResponse;
 import com.wfr.basic.service.platform.model.dto.user.DeletePlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.EditPlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
@@ -32,7 +33,7 @@ public class PlatformUserController {
      * @return 平台用户基础信息
      */
     @GetMapping("/details")
-    public PlatformUserVo getPlatformUserInfoById(@Valid @RequestParam(name = "id") Long id) {
+    public PlatformUserVo getPlatformUserInfoById(@RequestParam(name = "id", required = false) Long id) {
         return platformUserService.getPlatformUserInfoById(id);
     }
 
@@ -70,9 +71,21 @@ public class PlatformUserController {
      * 列表查询平台用户
      *
      * @param dto 列表查询的条件对象
+     * @return 列表数据
      */
     @PostMapping("/list")
     public List<PlatformUserVo> listPlatformUser(@RequestBody ListPlatformUserDto dto) {
         return platformUserService.listPlatformUser(dto);
+    }
+
+    /**
+     * 分页查询平台用户
+     *
+     * @param dto 分页查询的条件对象
+     * @return 分页数据
+     */
+    @PostMapping("/page")
+    public PageResponse<PlatformUserVo> pagePlatformUser(@RequestBody ListPlatformUserDto dto) {
+        return platformUserService.pagePlatformUser(dto);
     }
 }

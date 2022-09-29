@@ -1,5 +1,8 @@
 package com.wfr.basic.service.platform.service.impl;
 
+import com.wfr.base.framework.common.BaseException;
+import com.wfr.base.framework.common.PageResponse;
+import com.wfr.basic.service.platform.common.BasicPlatformErrorCode;
 import com.wfr.basic.service.platform.dao.service.IPlatformUserDaoService;
 import com.wfr.basic.service.platform.model.dto.user.DeletePlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.EditPlatformUserDto;
@@ -7,8 +10,8 @@ import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.entity.PlatformUserEntity;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
 import com.wfr.basic.service.platform.service.IPlatformUserService;
+import com.wfr.springboot.aliyun.service.sls.log.SlsLogData;
 import com.wfr.springboot.base.bean.mapper.BeanMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -24,8 +27,11 @@ import java.util.List;
 @Service
 public class PlatformUserServiceImpl implements IPlatformUserService {
 
-    @Autowired
-    private IPlatformUserDaoService platformUserDaoService;
+    private final IPlatformUserDaoService platformUserDaoService;
+
+    public PlatformUserServiceImpl(IPlatformUserDaoService platformUserDaoService) {
+        this.platformUserDaoService = platformUserDaoService;
+    }
 
     @Override
     public PlatformUserVo getPlatformUserInfoById(Long id) {
@@ -71,6 +77,17 @@ public class PlatformUserServiceImpl implements IPlatformUserService {
         // TODO 模拟一个公司id
         Long companyId = 1L;
 
-        return platformUserDaoService.listPlatformUser(dto, companyId);
+        try {
+            return platformUserDaoService.listPlatformUser(dto, companyId);
+        } catch (Exception e) {
+            throw new BaseException(BasicPlatformErrorCode.COMMON_SELECT_ERROR, e);
+        }
+    }
+
+    @Override
+    public PageResponse<PlatformUserVo> pagePlatformUser(ListPlatformUserDto dto) {
+        dto.setCompanyId(1L);
+        SlsLogData.info().add("dto", dto).push();
+        return platformUserDaoService.pagePlatformUser(dto);
     }
 }

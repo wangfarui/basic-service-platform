@@ -1,9 +1,11 @@
 package com.wfr.basic.service.platform.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.entity.PlatformUserEntity;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,5 +17,7 @@ import java.util.List;
  */
 public interface PlatformUserMapper extends BaseMapper<PlatformUserEntity> {
 
-    List<PlatformUserVo> listPlatformUser(ListPlatformUserDto dto, Long companyId);
+    List<PlatformUserVo> listPlatformUser(@Param("dto") ListPlatformUserDto dto, @Param("companyId") Long companyId);
+
+    IPage<PlatformUserVo> pagePlatformUser(@Param("page") IPage<PlatformUserVo> page, @Param("dto") ListPlatformUserDto dto);
 }

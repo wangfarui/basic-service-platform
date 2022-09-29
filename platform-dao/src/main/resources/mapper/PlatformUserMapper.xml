@@ -13,4 +13,15 @@
             and account_name like concat('%', #{dto.accountName}, '%')
         </if>
     </select>
+    <select id="pagePlatformUser" resultType="com.wfr.basic.service.platform.model.vo.user.PlatformUserVo">
+        select id, name, account_name, comment
+        from platform_user
+        where company_id = #{dto.companyId}
+        <if test="dto.name != null and dto.name != ''">
+            and name like concat('%', #{dto.name}, '%')
+        </if>
+        <if test="dto.accountName != null and dto.accountName != ''">
+            and account_name like concat('%', #{dto.accountName}, '%')
+        </if>
+    </select>
 </mapper>

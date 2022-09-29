@@ -1,6 +1,9 @@
 package com.wfr.basic.service.platform.dao.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wfr.base.framework.common.PageResponse;
+import com.wfr.base.framework.common.utils.PageUtils;
 import com.wfr.basic.service.platform.dao.mapper.PlatformUserMapper;
 import com.wfr.basic.service.platform.dao.service.IPlatformUserDaoService;
 import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
@@ -22,5 +25,12 @@ public class PlatformUserDaoServiceImpl extends ServiceImpl<PlatformUserMapper, 
     @Override
     public List<PlatformUserVo> listPlatformUser(ListPlatformUserDto dto, Long companyId) {
         return baseMapper.listPlatformUser(dto, companyId);
+    }
+
+    @Override
+    public PageResponse<PlatformUserVo> pagePlatformUser(ListPlatformUserDto dto) {
+        IPage<PlatformUserVo> page = baseMapper.pagePlatformUser(PageUtils.toPage(dto), dto);
+
+        return PageUtils.wrapPage(page);
     }
 }

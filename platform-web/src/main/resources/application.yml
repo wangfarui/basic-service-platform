@@ -18,8 +18,10 @@ aliyun:
       enabled: false
       log-store: my-local
 
+
 web:
   log:
+    lever: INFO
     filter:
       exclude-patterns:
         - /base/test/2
@@ -28,4 +30,19 @@ web:
 #        - /base/printSlsLog
 #        - /base/test
 #        - /base/abc
-debug: true
+
+debug: false
+
+log:
+  lever: INFO
+dao:
+  sql:
+    log:
+      normal-sql-log-level: info
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+#logging:
+#  config: classpath:logback-spring.xml

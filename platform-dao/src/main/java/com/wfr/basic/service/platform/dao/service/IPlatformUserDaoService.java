@@ -1,6 +1,7 @@
 package com.wfr.basic.service.platform.dao.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wfr.base.framework.common.PageResponse;
 import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
 import com.wfr.basic.service.platform.model.entity.PlatformUserEntity;
 import com.wfr.basic.service.platform.model.vo.user.PlatformUserVo;
@@ -16,4 +17,6 @@ import java.util.List;
 public interface IPlatformUserDaoService extends IService<PlatformUserEntity> {
 
     List<PlatformUserVo> listPlatformUser(ListPlatformUserDto dto, Long companyId);
+
+    PageResponse<PlatformUserVo> pagePlatformUser(ListPlatformUserDto dto);
 }

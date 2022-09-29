@@ -1,5 +1,6 @@
 package com.wfr.basic.service.platform.service;
 
+import com.wfr.base.framework.common.PageResponse;
 import com.wfr.basic.service.platform.model.dto.user.DeletePlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.EditPlatformUserDto;
 import com.wfr.basic.service.platform.model.dto.user.ListPlatformUserDto;
@@ -48,6 +49,15 @@ public interface IPlatformUserService {
      * 列表查询平台用户
      *
      * @param dto 列表查询的条件对象
+     * @return 列表数据
      */
     List<PlatformUserVo> listPlatformUser(ListPlatformUserDto dto);
+
+    /**
+     * 分页查询平台用户
+     *
+     * @param dto 分页查询的条件对象
+     * @return 分页数据
+     */
+    PageResponse<PlatformUserVo> pagePlatformUser(ListPlatformUserDto dto);
 }
