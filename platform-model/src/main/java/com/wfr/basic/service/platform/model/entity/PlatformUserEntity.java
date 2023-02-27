@@ -15,6 +15,8 @@ import lombok.Setter;
 @Setter
 public class PlatformUserEntity extends BaseEntity {
 
+    private Long companyId;
+
     private String name;
 
     private String accountName;
@@ -22,4 +24,5 @@ public class PlatformUserEntity extends BaseEntity {
     private String accountPassword;
 
     private String comment;
+
 }

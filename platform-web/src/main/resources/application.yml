@@ -2,9 +2,9 @@ spring:
   application:
     name: platform-web
   datasource:
-    url: jdbc:mysql://localhost:3307/basic_platform?allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: your
-    password: your
+    url: jdbc:mysql://localhost:3306/basic_platform?allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql8@2022
     type: com.mysql.cj.jdbc.MysqlDataSource
 
 server:

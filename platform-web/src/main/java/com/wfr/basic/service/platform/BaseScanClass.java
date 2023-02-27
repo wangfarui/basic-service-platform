@@ -18,10 +18,12 @@ public final class BaseScanClass {
                         .setDatabase("basic_platform")
                         .setUsername("your")
                         .setPassword("your")
-                        .setPort("3307")
+                        .setPort("3306")
                         .build(),
                 GlobalConfig.toBuilder()
-                        .setOutputDir("D:\\workspaces\\wfr\\basic-service-platform\\platform-web\\src\\main\\java\\com\\wfr\\basic\\service\\platform\\tmp")
+                        .setOutputDir("/Users/wangfarui/workspaces/wfr/basic-service-platform/platform-web/src/main/java/com/wfr/basic/service/platform/tmp")
+                        .setDirSeparator("/")
+                        .setAuthor("wangfarui")
                         .build()
         );
     }
