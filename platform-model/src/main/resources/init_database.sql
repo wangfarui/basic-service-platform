@@ -13,3 +13,10 @@ create table platform_user
     primary key (id),
     key idx_account (accountName)
 ) comment '用户表';
+
+create table platform_company
+(
+    id           bigint      not null auto_increment comment '主键id',
+    company_name varchar(64) not null default '' comment '企业名称',
+    primary key (id)
+) comment '企业表';
