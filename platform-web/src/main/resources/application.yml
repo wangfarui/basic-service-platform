@@ -39,6 +39,8 @@ dao:
   sql:
     log:
       normal-sql-log-level: info
+      enabled: false
+
 
 mybatis-plus:
   configuration:
